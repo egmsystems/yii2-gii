@@ -89,7 +89,7 @@ class Generator extends \yii\gii\Generator
     public function rules()
     {
         return array_merge(parent::rules(), [
-            [['controllerClass', 'modelClass', 'searchModelClass', 'baseControllerClass'], 'trim', 'chars' => '\ '],
+            //[['controllerClass', 'modelClass', 'searchModelClass', 'baseControllerClass'], 'trim', 'chars' => '\ '],// Exception 'yii\base\UnknownPropertyException' with message 'Setting unknown property: yii\validators\FilterValidator::chars'
             [['modelClass', 'controllerClass', 'baseControllerClass', 'indexWidgetType'], 'required'],
             [['searchModelClass'], 'compare', 'compareAttribute' => 'modelClass', 'operator' => '!==', 'message' => 'Search Model Class must not be equal to Model Class.'],
             [['modelClass', 'controllerClass', 'baseControllerClass', 'searchModelClass'], 'match', 'pattern' => '/^[\w\\\\]*$/', 'message' => 'Only word characters and backslashes are allowed.'],
