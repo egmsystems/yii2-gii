@@ -34,8 +34,10 @@ class GenerateAction extends \yii\base\Action
 
         if ($this->generator->validate()) {
             $this->generateCode();
+            return \yii\console\ExitCode::OK;
         } else {
             $this->displayValidationErrors();
+            return \yii\console\ExitCode::USAGE;// or DATAERR or CONFIG
         }
     }
 
